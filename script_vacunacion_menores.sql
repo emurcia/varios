@@ -45,7 +45,7 @@ ALTER TABLE ds_elegibilidad ADD nup varchar(25) DEFAULT NULL COMMENT 'Número Un
 ALTER TABLE ds_elegibilidad ADD nit varchar(25) DEFAULT NULL COMMENT 'Número Identificación Tributaria';
 ALTER TABLE ds_elegibilidad ADD isss varchar(25) DEFAULT NULL COMMENT 'Número de Afiliación ISSS';
 ALTER TABLE ds_elegibilidad ADD pasaporte varchar(25) DEFAULT NULL COMMENT 'Numero de Pasaporte';
-ALTER TABLE ds_elegibilidad ADD menor_verificado tinyint(1) DEFAULT NULL COMMENT 'NULL: ADULTO, 0: MENOR NO VERIFICADO, 1: MENOR VEFICADO';
+ALTER TABLE ds_elegibilidad ADD menor_verificado tinyint(1) DEFAULT NULL COMMENT 'NULL: ADULTO, 0: MENOR NO VERIFICADO, 1: MENOR VERIFICADO';
 ALTER TABLE ds_elegibilidad ADD partida_nacimiento varchar(25) DEFAULT NULL COMMENT 'Número de Partida de Nacimiento';
 ALTER TABLE ds_elegibilidad ADD libro varchar(25) DEFAULT NULL COMMENT 'Número de Libro de la Partida de Nacimiento';
 ALTER TABLE ds_elegibilidad ADD folio varchar(25) DEFAULT NULL COMMENT 'Número de Folio de la Partida de Nacimiento';
