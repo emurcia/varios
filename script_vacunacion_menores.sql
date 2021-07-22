@@ -49,3 +49,7 @@ ALTER TABLE ds_elegibilidad ADD menor_verificado tinyint(1) DEFAULT NULL COMMENT
 ALTER TABLE ds_elegibilidad ADD partida_nacimiento varchar(25) DEFAULT NULL COMMENT 'Número de Partida de Nacimiento';
 ALTER TABLE ds_elegibilidad ADD libro varchar(25) DEFAULT NULL COMMENT 'Número de Libro de la Partida de Nacimiento';
 ALTER TABLE ds_elegibilidad ADD folio varchar(25) DEFAULT NULL COMMENT 'Número de Folio de la Partida de Nacimiento';
+ALTER TABLE ds_elegibilidad ADD id_municipio_nacimiento int DEFAULT NULL COMMENT 'Muncipio de nacimiento de la persona';
+
+
+
