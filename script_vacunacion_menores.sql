@@ -54,7 +54,7 @@ ALTER TABLE ds_elegibilidad ADD id_municipio_nacimiento int DEFAULT NULL COMMENT
 
 CREATE TABLE `ds_incremental_menores` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dato` int(11) default NULL
+  `dato` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
