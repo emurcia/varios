@@ -52,4 +52,11 @@ ALTER TABLE ds_elegibilidad ADD folio varchar(25) DEFAULT NULL COMMENT 'Número 
 ALTER TABLE ds_elegibilidad ADD id_municipio_nacimiento int DEFAULT NULL COMMENT 'Muncipio de nacimiento de la persona';
 
 
+CREATE TABLE `ds_incremental_menores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dato` int(11) default NULL
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
 
