@@ -91,7 +91,7 @@ left join `ds_departamento` `mndp` on
 CREATE TABLE `ds_antecedentes_obstetricos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `semanas_gestacion` int(11) NOT NULL COMMENT 'Semanas de embarazo',
-  `id_presona` int(11) NOT NULL COMMENT 'id_persona resgistro de elegibilidad',
+  `id_persona` int(11) NOT NULL COMMENT 'id_persona resgistro de elegibilidad',
   `created_at` datetime COMMENT 'Fecha creacion',
   `updated_at` datetime COMMENT 'Fecha actualizacion',
   PRIMARY KEY (`id`),
