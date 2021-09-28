@@ -35,6 +35,7 @@ select
     `cl`.`nombre_min` AS `colonia/nombre_min`,
     `cl`.`nombre_may` AS `colonia/nombre_may`,
     `e`.`id_fase` AS `id_fase`,
+    `e`.`habilitado_3ra_dosis` AS `habilitado`,
     `e`.`img_foto` AS `foto/img_foto`
 from
     (((((`ds_elegibilidad` `e`
