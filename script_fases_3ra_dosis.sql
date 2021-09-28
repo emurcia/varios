@@ -148,4 +148,4 @@ left join `ds_revision` `rv` on
 left join `ds_municipio` `mn` on
     ((`e`.`id_municipio_domicilio` = `mn`.`id`)))
 left join `ds_departamento` `mndp` on
-    ((`mn`.`id_departamento` = `mndp`.`id`)))
+    ((`mn`.`id_departamento` = `mndp`.`id`)));
