@@ -54,6 +54,8 @@ left join `ds_departamento` `mndp` on
     
 ALTER TABLE ds_fase ADD habilitado BOOL DEFAULT false NOT NULL;
 
+UPDATE ds_fase SET habilitado = 1 WHERE id_fase IN(68,67,60,29,20,12);
+
 
 CREATE OR REPLACE
 ALGORITHM = UNDEFINED VIEW `indice` AS
