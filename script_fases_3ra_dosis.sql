@@ -1,3 +1,5 @@
+ALTER TABLE ds_elegibilidad ADD habilitado BOOL DEFAULT false NOT NULL;
+
 CREATE OR REPLACE
 ALGORITHM = UNDEFINED VIEW `indice_busqueda` AS
 select
