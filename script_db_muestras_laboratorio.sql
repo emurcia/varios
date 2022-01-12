@@ -1,6 +1,3 @@
-
-
-
 CREATE TABLE `ds_tipo_muestra` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(200) NOT NULL COMMENT 'Nombre del tipo de la muestra',
@@ -68,7 +65,7 @@ INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(4,'Hospital Nacional d
 
 
 
-CREATE TABLE `ds_equipo` (
+CREATE TABLE `ds_equipo_muestra` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(200) NOT NULL COMMENT 'Nombre del equipo',
   `caracter_identificador` char(1) NOT NULL COMMENT 'Caracter identificador',
@@ -76,10 +73,10 @@ CREATE TABLE `ds_equipo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-INSERT INTO ds_equipo (id,nombre,caracter_identificador) values(1,'Hospital', 'A');
-INSERT INTO ds_equipo (id,nombre,caracter_identificador) values(2,'Unidad de Salud','B');
-INSERT INTO ds_equipo (id,nombre,caracter_identificador) values(3,'Cabina Móvil','C');
-INSERT INTO ds_equipo (id,nombre,caracter_identificador) values(4,'Águila y Epidemiología','D');
+INSERT INTO ds_equipo_muestra (id,nombre,caracter_identificador) values(1,'Hospital', 'A');
+INSERT INTO ds_equipo_muestra (id,nombre,caracter_identificador) values(2,'Unidad de Salud','B');
+INSERT INTO ds_equipo_muestra (id,nombre,caracter_identificador) values(3,'Cabina Móvil','C');
+INSERT INTO ds_equipo_muestra (id,nombre,caracter_identificador) values(4,'Águila y Epidemiología','D');
 
 
 
@@ -105,7 +102,7 @@ CREATE TABLE `ds_configuracion_ubicacion_muestras` (
   CONSTRAINT `FK_ds_configuracion_ds_establecimiento` FOREIGN KEY (`id_establecimiento_base`) REFERENCES `ds_establecimiento` (`id`),
   CONSTRAINT `FK_ds_configuracion_ds_municipio` FOREIGN KEY (`id_municipio`) REFERENCES `ds_municipio` (`id`),
   CONSTRAINT `FK_ds_configuracion_ds_laboratorio` FOREIGN KEY (`id_laboratorio`) REFERENCES `ds_laboratorio` (`id`),
-  CONSTRAINT `FK_ds_configuracion_ds_equipo` FOREIGN KEY (`id_equipo`) REFERENCES `ds_equipo` (`id`),
+  CONSTRAINT `FK_ds_configuracion_ds_equipo` FOREIGN KEY (`id_equipo`) REFERENCES `ds_equipo_muesta` (`id`),
   CONSTRAINT `FK_ds_configuracion_ds_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `ds_usuario` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -161,5 +158,7 @@ CREATE TABLE `ds_resultado_prueba_laboratorio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
+INSERT INTO ds_establecimiento_fisico
+(id, nombre, direccion, id_institucion, id_departamento, id_municipio, fecha_desde, fecha_hasta, num_equipos_vac, capacidad_diaria, capacidad_hora, id_establecimiento_base, latitud, longitud, centro_vacunacion, agrupacion_mapa)
+VALUES(250, 'Laboratorio Nacional de Referencia SS "Dr. Max Bloch"', 'Alameda Roosevelt entre Hospital Rosales y el Hospital Ex-Militar', 1, 6, 110, '2021-07-22', '2021-12-31', NULL, NULL, NULL, 2, 13.700017, -89.207577, 0, 1);
 
