@@ -186,3 +186,6 @@ ALTER TABLE ds_configuracion_ubicacion_muestras RENAME tz_configuracion_ubicacio
 ALTER TABLE ds_muestra_laboratorio RENAME tz_muestra_laboratorio;
 
 ALTER TABLE ds_resultado_prueba_laboratorio RENAME tz_resultado_prueba_laboratorio;
+
+
+ALTER TABLE tz_configuracion_ubicacion_muestras CHANGE descripcion procedencia varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'Procedencia opcional, posiblemente va el nombre de la unidad vacunadora definida internamente en el establecimiento';
