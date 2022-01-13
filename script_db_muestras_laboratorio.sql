@@ -162,3 +162,27 @@ INSERT INTO ds_establecimiento_fisico
 (id, nombre, direccion, id_institucion, id_departamento, id_municipio, fecha_desde, fecha_hasta, num_equipos_vac, capacidad_diaria, capacidad_hora, id_establecimiento_base, latitud, longitud, centro_vacunacion, agrupacion_mapa)
 VALUES(250, 'Laboratorio Nacional de Referencia SS "Dr. Max Bloch"', 'Alameda Roosevelt entre Hospital Rosales y el Hospital Ex-Militar', 1, 6, 110, '2021-07-22', '2021-12-31', NULL, NULL, NULL, 2, 13.700017, -89.207577, 0, 1);
 
+
+ALTER TABLE ds_resultado_prueba_laboratorio ADD gen_e double(12,2) AFTER resultado;
+ALTER TABLE ds_resultado_prueba_laboratorio ADD gen_n double(12,2) AFTER gen_e;
+ALTER TABLE ds_resultado_prueba_laboratorio ADD gen_rdrp_s double(12,2) AFTER gen_n;
+
+
+
+ALTER TABLE ds_tipo_muestra RENAME tz_tipo_muestra;
+
+ALTER TABLE ds_tipo_prueba RENAME tz_tipo_prueba;
+
+ALTER TABLE ds_estado_prueba RENAME tz_estado_prueba;
+
+ALTER TABLE ds_estado_paciente RENAME tz_estado_paciente;
+
+ALTER TABLE ds_laboratorio RENAME tz_laboratorio;
+
+ALTER TABLE ds_equipo_muestra RENAME tz_equipo_muestra;
+
+ALTER TABLE ds_configuracion_ubicacion_muestras RENAME tz_configuracion_ubicacion_muestras;
+
+ALTER TABLE ds_muestra_laboratorio RENAME tz_muestra_laboratorio;
+
+ALTER TABLE ds_resultado_prueba_laboratorio RENAME tz_resultado_prueba_laboratorio;
