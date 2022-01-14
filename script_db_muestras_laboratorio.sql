@@ -189,3 +189,6 @@ ALTER TABLE ds_resultado_prueba_laboratorio RENAME tz_resultado_prueba_laborator
 
 
 ALTER TABLE tz_configuracion_ubicacion_muestras CHANGE descripcion procedencia varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'Procedencia opcional, posiblemente va el nombre de la unidad vacunadora definida internamente en el establecimiento';
+
+
+INSERT INTO ds_fase (id_fase, descripcion_fase, fecha_desde, fecha_hasta, id_fase_d, habilitado) VALUES(46, 'Menores de edad entre 0 a 5 años ', '2021-09-22', '2021-12-31', 3, 0);
