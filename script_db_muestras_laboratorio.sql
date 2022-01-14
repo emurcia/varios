@@ -163,6 +163,9 @@ INSERT INTO ds_establecimiento_fisico
 VALUES(250, 'Laboratorio Nacional de Referencia SS "Dr. Max Bloch"', 'Alameda Roosevelt entre Hospital Rosales y el Hospital Ex-Militar', 1, 6, 110, '2021-07-22', '2021-12-31', NULL, NULL, NULL, 2, 13.700017, -89.207577, 0, 1);
 
 
+UPDATE ds_establecimiento_fisico SET nombre='Tamizaje Nacional Covid19' WHERE id=250;
+
+
 ALTER TABLE ds_resultado_prueba_laboratorio ADD gen_e double(12,2) AFTER resultado;
 ALTER TABLE ds_resultado_prueba_laboratorio ADD gen_n double(12,2) AFTER gen_e;
 ALTER TABLE ds_resultado_prueba_laboratorio ADD gen_rdrp_s double(12,2) AFTER gen_n;
