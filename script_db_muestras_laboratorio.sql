@@ -195,3 +195,20 @@ ALTER TABLE tz_configuracion_ubicacion_muestras CHANGE descripcion procedencia v
 
 
 INSERT INTO ds_fase (id_fase, descripcion_fase, fecha_desde, fecha_hasta, id_fase_d, habilitado) VALUES(46, 'Menores de edad entre 0 a 5 años ', '2021-09-22', '2021-12-31', 3, 0);
+
+
+CREATE TABLE `tz_persona_direcciones` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_persona` int(11) NOT NULL COMMENT 'ds_elegibilidad',
+  `id_departamento` int(11) NOT NULL COMMENT 'ds_departamento',
+  `id_municipio` int(11) NOT NULL COMMENT 'ds_municipio',
+  `calle_avenida` varchar(150) NULL COMMENT 'Calle Avenida',
+  `casa_apartamento` varchar(150) NULL COMMENT 'numero de casa apartamento',
+  `tipo_direccion` varchar(50) NULL DEFAULT 'ENVIO' COMMENT 'numero de casa apartamento',
+  `created_at` datetime NULL COMMENT 'Fecha de creación',
+  `updated_at` datetime NULL COMMENT 'Fecha de modificación',
+  PRIMARY KEY (`id`),
+  CONSTRAINT `FK_ds_persona` FOREIGN KEY (`id_persona`) REFERENCES `ds_elegibilidad` (`id`) on update cascade on delete cascade,  
+  CONSTRAINT `FK_ds_direccion_ds_departamento` FOREIGN KEY (`id_departamento`) REFERENCES `ds_departamento` (`id`) on update cascade on delete cascade,
+  CONSTRAINT `FK_ds_direccion_ds_municipio` FOREIGN KEY (`id_municipio`) REFERENCES `ds_municipio` (`id`) on update cascade on delete cascade
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
