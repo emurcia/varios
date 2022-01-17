@@ -61,7 +61,7 @@ CREATE TABLE `ds_laboratorio` (
 INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(1,'Laboratorio Nacional de Referencia', 'LNR');
 INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(2,'Hospital General ISSS','HGISSS');
 INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(3,'Hospital Nacional de Santa Ana','HSA');
-INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(4,'Hospital Nacional de San Minguel','HSM');
+INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(4,'Hospital Nacional de San Miguel','HSM');
 
 
 
@@ -234,3 +234,7 @@ CREATE TABLE `tz_usuario_laboratorio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+INSERT INTO ds_roles (id, rol_nombre) VALUES(13, 'admin_pruebas_lab');
+INSERT INTO ds_roles (id, rol_nombre) VALUES(14, 'reg_pruebas_lab');
+INSERT INTO ds_roles (id, rol_nombre) VALUES(15, 'reg_lab');
+INSERT INTO ds_roles (id, rol_nombre) VALUES(16, 'reg_result_lab');
