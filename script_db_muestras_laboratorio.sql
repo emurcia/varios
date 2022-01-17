@@ -144,17 +144,23 @@ CREATE TABLE `ds_resultado_prueba_laboratorio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_muestra_laboratorio` int(11) NOT NULL COMMENT 'ds_muestra_laboratorio',
   `id_usuario` int(11) NOT NULL COMMENT 'ds_usuario usuario que registra el resultado',
-  `resultado` varchar(10) NULL COMMENT 'Resultado de la prueba NEGATIVO, POSITIVO',
-  `comentario` varchar(256) NULL COMMENT 'Comentario opcional',
-  `created_at` datetime NULL COMMENT 'Fecha de creación',
-  `updated_at` datetime NULL COMMENT 'Fecha de modificación',
+  `id_laboratorio` int(11) DEFAULT NULL,
+  `resultado` varchar(10) DEFAULT NULL COMMENT 'Resultado de la prueba NEGATIVO, POSITIVO',
+  `gen_e` double(12,2) DEFAULT NULL,
+  `gen_n` double(12,2) DEFAULT NULL,
+  `gen_rdrp_s` double(12,2) DEFAULT NULL,
+  `comentario` varchar(256) DEFAULT NULL COMMENT 'Comentario opcional',
+  `created_at` datetime DEFAULT NULL COMMENT 'Fecha de creación',
+  `updated_at` datetime DEFAULT NULL COMMENT 'Fecha de modificación',
   PRIMARY KEY (`id`),
   KEY `FK_ds_resultado_ds_muestra` (`id_muestra_laboratorio`),
   KEY `FK_ds_resultado_usuario` (`id_usuario`),
   KEY `FK_ds_resultado_resultado` (`resultado`),
   KEY `FK_ds_resultado_created` (`created_at`),
-  CONSTRAINT `FK_ds_resultado_ds_muestra` FOREIGN KEY (`id_muestra_laboratorio`) REFERENCES `ds_muestra_laboratorio` (`id`),
-  CONSTRAINT `FK_ds_resultado_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `ds_usuario` (`id`)
+  KEY `tz_resultado_prueba_laboratorio_id_laboratorio_IDX` (`id_laboratorio`) USING BTREE,
+  CONSTRAINT `FK_ds_resultado_ds_muestra` FOREIGN KEY (`id_muestra_laboratorio`) REFERENCES `tz_muestra_laboratorio` (`id`),
+  CONSTRAINT `FK_ds_resultado_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `ds_usuario` (`id`),
+  CONSTRAINT `tz_resultado_prueba_laboratorio_FK` FOREIGN KEY (`id_laboratorio`) REFERENCES `tz_laboratorio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -212,3 +218,19 @@ CREATE TABLE `tz_persona_direcciones` (
   CONSTRAINT `FK_ds_direccion_ds_departamento` FOREIGN KEY (`id_departamento`) REFERENCES `ds_departamento` (`id`) on update cascade on delete cascade,
   CONSTRAINT `FK_ds_direccion_ds_municipio` FOREIGN KEY (`id_municipio`) REFERENCES `ds_municipio` (`id`) on update cascade on delete cascade
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `tz_usuario_laboratorio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) NOT NULL COMMENT 'ds_usuario',
+  `id_laboratorio` int(11) NOT NULL COMMENT 'tz_laboratorio',
+  `created_at` datetime DEFAULT NULL COMMENT 'Fecha de creación',
+  `updated_at` datetime DEFAULT NULL COMMENT 'Fecha de modificación',
+  PRIMARY KEY (`id`),
+  KEY `FK_ds_usuario` (`id_usuario`),
+  KEY `FK_tz_laboratorio` (`id_laboratorio`),
+  CONSTRAINT `FK_ds_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `ds_usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_tz_laboratorio` FOREIGN KEY (`id_laboratorio`) REFERENCES `tz_laboratorio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
