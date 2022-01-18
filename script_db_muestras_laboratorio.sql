@@ -107,19 +107,20 @@ CREATE TABLE `ds_configuracion_ubicacion_muestras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `ds_muestra_laboratorio` (
+CREATE TABLE `tz_muestra_laboratorio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_persona` int(11) NOT NULL COMMENT 'id persona',
-  `codigo_muestra` varchar(19) NULL COMMENT 'Código en formato A22-0112-0625-00001',
+  `codigo_muestra` varchar(19) DEFAULT NULL COMMENT 'Código en formato A22-0112-0625-00001',
   `id_tipo_prueba` int(11) NOT NULL COMMENT 'id_tipo_prueba ds_tipo_prueba, pcr y prueba rapida',
   `id_tipo_muestra` int(11) NOT NULL COMMENT 'ds_tipo_muestra',
   `id_estado_prueba` int(11) NOT NULL COMMENT 'ds_estado_prueba',
   `id_configuracion_ubicacion_muestra` int(11) NOT NULL COMMENT 'ds_configuracion_ubicacion_muestra',
-  `id_usuario_modifica` int(11) NULL COMMENT 'id_usuario que modifica el estado de la muestra',
+  `id_usuario_modifica` int(11) DEFAULT NULL COMMENT 'id_usuario que modifica el estado de la muestra',
   `id_estado_paciente` int(11) NOT NULL COMMENT 'ds_estado_paciente',
-  `fecha_toma_muestra` date NULL COMMENT 'Fecha de toma de muestra',
-  `created_at` datetime NULL COMMENT 'Fecha de creación',
-  `updated_at` datetime NULL COMMENT 'Fecha de modificación',
+  `id_laboratorio_recibe` int(11) DEFAULT NULL,
+  `fecha_toma_muestra` datetime DEFAULT NULL COMMENT 'Fecha de toma de muestra',
+  `created_at` datetime DEFAULT NULL COMMENT 'Fecha de creación',
+  `updated_at` datetime DEFAULT NULL COMMENT 'Fecha de modificación',
   PRIMARY KEY (`id`),
   KEY `FK_ds_muestra_ds_elegibilidad` (`id_persona`),
   KEY `FK_ds_muestra_codigo` (`codigo_muestra`),
@@ -130,14 +131,17 @@ CREATE TABLE `ds_muestra_laboratorio` (
   KEY `FK_ds_muestra_ds_estado_paciente` (`id_estado_paciente`),
   KEY `FK_ds_muestra_fecha` (`fecha_toma_muestra`),
   KEY `FK_ds_muestra_created` (`created_at`),
+  KEY `FK_ds_muestra_ds_usuario` (`id_usuario_modifica`),
+  KEY `tz_muestra_laboratorio_FK` (`id_laboratorio_recibe`),
+  CONSTRAINT `FK_ds_muestra_ds_configuracion_ubicacion` FOREIGN KEY (`id_configuracion_ubicacion_muestra`) REFERENCES `tz_configuracion_ubicacion_muestras` (`id`),
   CONSTRAINT `FK_ds_muestra_ds_elegibilidad` FOREIGN KEY (`id_persona`) REFERENCES `ds_elegibilidad` (`id`),
-  CONSTRAINT `FK_ds_muestra_ds_tipo_prueba` FOREIGN KEY (`id_tipo_prueba`) REFERENCES `ds_tipo_prueba` (`id`),
-  CONSTRAINT `FK_ds_muestra_ds_tipo_muestra` FOREIGN KEY (`id_tipo_muestra`) REFERENCES `ds_tipo_muestra` (`id`),
-  CONSTRAINT `FK_ds_muestra_ds_estado_prueba` FOREIGN KEY (`id_estado_prueba`) REFERENCES `ds_estado_prueba` (`id`),
-  CONSTRAINT `FK_ds_muestra_ds_configuracion_ubicacion` FOREIGN KEY (`id_configuracion_ubicacion_muestra`) REFERENCES `ds_configuracion_ubicacion_muestras` (`id`),
+  CONSTRAINT `FK_ds_muestra_ds_estado_paciente` FOREIGN KEY (`id_estado_paciente`) REFERENCES `tz_estado_paciente` (`id`),
+  CONSTRAINT `FK_ds_muestra_ds_estado_prueba` FOREIGN KEY (`id_estado_prueba`) REFERENCES `tz_estado_prueba` (`id`),
+  CONSTRAINT `FK_ds_muestra_ds_tipo_muestra` FOREIGN KEY (`id_tipo_muestra`) REFERENCES `tz_tipo_muestra` (`id`),
+  CONSTRAINT `FK_ds_muestra_ds_tipo_prueba` FOREIGN KEY (`id_tipo_prueba`) REFERENCES `tz_tipo_prueba` (`id`),
   CONSTRAINT `FK_ds_muestra_ds_usuario` FOREIGN KEY (`id_usuario_modifica`) REFERENCES `ds_usuario` (`id`),
-  CONSTRAINT `FK_ds_muestra_ds_estado_paciente` FOREIGN KEY (`id_estado_paciente`) REFERENCES `ds_estado_paciente` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `tz_muestra_laboratorio_FK` FOREIGN KEY (`id_laboratorio_recibe`) REFERENCES `tz_laboratorio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `ds_resultado_prueba_laboratorio` (
