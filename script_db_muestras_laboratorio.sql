@@ -60,8 +60,8 @@ CREATE TABLE `ds_laboratorio` (
 
 INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(1,'Laboratorio Nacional de Referencia', 'LNR');
 INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(2,'Hospital General ISSS','HGISSS');
-INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(3,'Hospital Nacional de Santa Ana','HSA');
-INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(4,'Hospital Nacional de San Miguel','HSM');
+INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(3,'Hospital Nacional Santa Ana SA "San Juan de Dios"','HSA');
+INSERT INTO ds_laboratorio (id,nombre,abreviatura) values(4,'Hospital Nacional San Miguel SM "San Juan de Dios"','HSM');
 
 
 
