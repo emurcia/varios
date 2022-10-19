@@ -65,7 +65,7 @@ x509_extensions         = root_ca_extensions
 [ root_ca_distinguished_name ]
 commonName              = GOES test Certificate Authority
 stateOrProvinceName     = San Salvador
-countryName             = El Salvador
+countryName             = SV
 emailAddress            = ever.murcia@goes.gob.sv
 organizationName        = Gobierno de El Salvador
 organizationalUnitName  = IT Department
