@@ -9,23 +9,23 @@ default_ca      = local_ca
 # Default location of directories and files needed to generate certificates.
 #
 [ local_ca ]
-dir             = /etc/ssl/ca
+dir             = /home/root/myCA
 certificate     = $dir/cacert.pem
 database        = $dir/index.txt
 new_certs_dir   = $dir/signedcerts
 private_key     = $dir/private/cakey.pem
 serial          = $dir/serial
-#       
+#
 #
 # Default expiration and encryption policies for certificates.
 #
 default_crl_days        = 365
 default_days            = 1825
-default_md              = md5
-#       
+default_md              = sha1
+#
 policy          = local_ca_policy
 x509_extensions = local_ca_extensions
-#       
+#
 #
 # Default policy to use when generating server certificates.  The following
 # fields must be defined in the server certificate.
@@ -37,12 +37,12 @@ countryName             = supplied
 emailAddress            = supplied
 organizationName        = supplied
 organizationalUnitName  = supplied
-#       
+#
 #
 # x509 extensions to use when generating server certificates.
 #
 [ local_ca_extensions ]
-subjectAltName          = DNS:yourhostname.domain
+subjectAltName          = DNS:firma.minsal.dev
 basicConstraints        = CA:false
 nsCertType              = server
 #
@@ -51,9 +51,9 @@ nsCertType              = server
 #
 [ req ]
 default_bits    = 2048
-default_keyfile = /etc/ssl/ca/private/cakey.pem
-default_md      = md5
-#       
+default_keyfile = /home/root/myCA/private/cakey.pem
+default_md      = sha1
+#
 prompt                  = no
 distinguished_name      = root_ca_distinguished_name
 x509_extensions         = root_ca_extensions
@@ -63,11 +63,11 @@ x509_extensions         = root_ca_extensions
 # your local environment!
 #
 [ root_ca_distinguished_name ]
-commonName              = yourhostname.domain Certificate Authority
-stateOrProvinceName     = OH
-countryName             = US
-emailAddress            = trevorj@nowhere.com
-organizationName        = Trevorjs Car Audio Shop
+commonName              = GOES test Certificate Authority
+stateOrProvinceName     = San Salvador
+countryName             = El Salvador
+emailAddress            = ever.murcia@goes.gob.sv
+organizationName        = Gobierno de El Salvador
 organizationalUnitName  = IT Department
 #
 [ root_ca_extensions ]
